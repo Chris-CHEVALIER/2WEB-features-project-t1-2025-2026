@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  background-image: url(./images/background.png);
+  background-size: cover;
+  background-position: top;
+}
+
+/* Grande hauteur simulée pour permettre le scroll narratif */
+body {
+  min-height: 600vh; /* 6 écrans */
+}
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #000;
+}
+
+/* ===== PANNEAUX CENTRÉS FIXES ===== */
+.panels {
+  position: relative;
+  z-index: 1;
+}
+
+.panel {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+.panel-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+h1,
+h2 {
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* ===== PANEL LOGO + MANOIR ===== */
+.logo-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.logo-scene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Logo parfaitement centré, qui NE BOUGE PAS au scroll */
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(300px, 60vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 20%,
+    #facc15 0,
+    #f97316 40%,
+    #b45309 80%
+  );
+  box-shadow: 0 0 40px rgba(250, 204, 21, 0.8), 0 20px 60px rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #111827;
+  z-index: 1;
+}
+
+.logo span {
+  transform: translateY(2px);
+}
+
+/* Manoir : image PNG avec transparence qui remonte pour cacher le logo */
+.manor {
+  position: absolute;
+  top: 120vh; /* démarre juste sous le bas de la fenêtre */
+  left: 0;
+  right: 0;
+  height: 110vh; /* un peu plus haut que la fenêtre pour être sûr de couvrir le logo */
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+  transform: translateY(0);
+  transition: transform 0.1s linear;
+}
+
+.manor img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.logo-caption {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  p {
+    font-size: 0.95rem;
+  }
+
+  .logo-caption {
+    font-size: 0.8rem;
+    padding-inline: 1.2rem;
+  }
+}

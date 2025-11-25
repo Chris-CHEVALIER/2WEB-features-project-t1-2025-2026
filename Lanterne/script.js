@@ -1,5 +1,5 @@
 const container = document.getElementById('container')
-const manorLight = document.getElementById('manor-light')
+const interiorLight = document.getElementById('interior-light')
 const lightGlow = document.getElementById('light-glow')
 const lanternHand = document.getElementById('lantern-hand')
 
@@ -29,8 +29,8 @@ container.addEventListener('mousemove', e => {
   const percentX = (targetX / containerRect.width) * 100
   const percentY = (targetY / containerRect.height) * 100
 
-  manorLight.style.setProperty('--mouse-x', `${percentX}%`)
-  manorLight.style.setProperty('--mouse-y', `${percentY}%`)
+  interiorLight.style.setProperty('--mouse-x', `${percentX}%`)
+  interiorLight.style.setProperty('--mouse-y', `${percentY}%`)
   lightGlow.style.setProperty('--mouse-x', `${percentX}%`)
   lightGlow.style.setProperty('--mouse-y', `${percentY}%`)
 })
@@ -70,8 +70,8 @@ animateLantern()
 
 // Initialiser la position au centre
 window.addEventListener('load', () => {
-  manorLight.style.setProperty('--mouse-x', '50%')
-  manorLight.style.setProperty('--mouse-y', '50%')
+  interiorLight.style.setProperty('--mouse-x', '50%')
+  interiorLight.style.setProperty('--mouse-y', '50%')
   lightGlow.style.setProperty('--mouse-x', '50%')
   lightGlow.style.setProperty('--mouse-y', '50%')
 })

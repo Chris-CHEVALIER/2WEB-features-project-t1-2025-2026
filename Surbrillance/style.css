@@ -1,0 +1,14 @@
+body {
+  background-color: black;
+}
+.logo-svg {
+  display: inline-block;
+  transition: filter 0.25s ease, transform 0.25s ease;
+  width: 25%;
+}
+
+/* Survol : ombre + léger zoom + lumière */
+.logo-svg:hover {
+  filter: drop-shadow(0 8px 18px rgba(255, 255, 255, 0.6)) brightness(1.15);
+  transform: translateY(-2px);
+}
